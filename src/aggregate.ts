@@ -98,7 +98,9 @@ const METHOD_NEEDS_COLLECT = {
 const METHOD_NEEDS_GATHER_VALUES = {
     Q1: true,
     Q2: true,
-    Q3: true
+    Q3: true,
+    MAX: true,
+    MIN: true
 } as const;
 const METHOD_ALIAS = {
     MEDIAN: 'Q2'
