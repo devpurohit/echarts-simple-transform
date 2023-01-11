@@ -1,13 +1,13 @@
 {
-  "name": "echarts-simple-transform",
+  "name": "echarts-transform-dynamic-boxplot",
   "version": "1.0.0",
-  "description": "Some simple data transforms for Apache ECharts 5",
+  "description": "Dynamic boxplot transform for Apache ECharts 5",
   "license": "Apache-2.0",
-  "main": "dist/ecSimpleTransform.js",
-  "jsdelivr": "dist/ecSimpleTransform.min.js",
+  "main": "dist/ecSimpleTransformDynamicBoxplot.js",
+  "jsdelivr": "dist/ecSimpleTransformDynamicBoxplot.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/100pah/echarts-simple-transform.git"
+    "url": "https://github.com/devpurohit/echarts-simple-transform"
   },
   "scripts": {
     "build": "node build/build.js",
