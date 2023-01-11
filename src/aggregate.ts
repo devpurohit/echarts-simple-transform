@@ -550,11 +550,11 @@ const lineUpdater: {
     'FIRST'(val) {
         return val;
     },
-    'MIN'(val, upstream, dataIndex, dimInfo) {
-        return Math.min(val as number, upstream.retrieveValue(dataIndex, dimInfo.indexInUpstream) as number);
+    'MIN'(val, upstream, dataIndex, dimInfo, groupByDimInfo, groupByVal) {
+        return lineCreatorForQ(0.1, dimInfo, groupByDimInfo, groupByVal);
     },
-    'MAX'(val, upstream, dataIndex, dimInfo) {
-        return Math.max(val as number, upstream.retrieveValue(dataIndex, dimInfo.indexInUpstream) as number);
+    'MAX'(val, upstream, dataIndex, dimInfo, groupByDimInfo, groupByVal) {
+        return lineCreatorForQ(0.9, dimInfo, groupByDimInfo, groupByVal);
     },
     'AVERAGE'(val, upstream, dataIndex, dimInfo, groupByDimInfo, groupByVal) {
         // FIXME: refactor, bad implementation.
