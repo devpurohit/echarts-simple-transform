@@ -142,7 +142,7 @@
             var dimInfoInUpstream = upstream.getDimensionInfo(resultDimInfoConfig.from);
             assert(dimInfoInUpstream, 'Can not find dimension by `from`: ' + resultDimInfoConfig.from);
             var rawMethod = resultDimInfoConfig.method;
-            assert(groupByDimInfo.index !== dimInfoInUpstream.index || rawMethod == null, "Dimension " + dimInfoInUpstream.name + " is the \"groupBy\" dimension, must not have any \"method\".");
+            assert(groupByDimInfo.index !== dimInfoInUpstream.index || rawMethod == null, "Dimension ".concat(dimInfoInUpstream.name, " is the \"groupBy\" dimension, must not have any \"method\"."));
             var method = normalizeMethod(rawMethod);
             assert(method, 'method is required');
             var name_1 = resultDimInfoConfig.name != null ? resultDimInfoConfig.name : dimInfoInUpstream.name;
@@ -216,7 +216,7 @@
         methodInternal = hasOwn(METHOD_ALIAS, methodInternal)
             ? METHOD_ALIAS[methodInternal]
             : methodInternal;
-        assert(hasOwn(METHOD_INTERNAL, methodInternal), "Illegal method " + method + ".");
+        assert(hasOwn(METHOD_INTERNAL, methodInternal), "Illegal method ".concat(method, "."));
         return methodInternal;
     }
     var createCollectionResultLine = function (upstream, dataIndex, collectionDimInfoList, groupByDimInfo, groupByVal) {
@@ -280,8 +280,8 @@
         });
     }
     var lineCreator = {
-        'SUM': function () {
-            return 0;
+        'SUM': function (upstream, dataIndex, dimInfo) {
+            return upstream.retrieveValue(dataIndex, dimInfo.indexInUpstream);
         },
         'COUNT': function () {
             return 1;
@@ -322,11 +322,11 @@
         'FIRST': function (val) {
             return val;
         },
-        'MIN': function (val, upstream, dataIndex, dimInfo) {
-            return Math.min(val, upstream.retrieveValue(dataIndex, dimInfo.indexInUpstream));
+        'MIN': function (val, upstream, dataIndex, dimInfo, groupByDimInfo, groupByVal) {
+            return lineCreatorForQ(0.1, dimInfo, groupByDimInfo, groupByVal);
         },
-        'MAX': function (val, upstream, dataIndex, dimInfo) {
-            return Math.max(val, upstream.retrieveValue(dataIndex, dimInfo.indexInUpstream));
+        'MAX': function (val, upstream, dataIndex, dimInfo, groupByDimInfo, groupByVal) {
+            return lineCreatorForQ(0.9, dimInfo, groupByDimInfo, groupByVal);
         },
         'AVERAGE': function (val, upstream, dataIndex, dimInfo, groupByDimInfo, groupByVal) {
             var collectLine = groupByDimInfo
