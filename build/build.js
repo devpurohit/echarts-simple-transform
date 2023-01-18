@@ -28,7 +28,7 @@ const typescriptPlugin = require("rollup-plugin-typescript2");
 const { terser } = require("rollup-plugin-terser");
 
 const projDir = nodePath.resolve(__dirname, "..");
-const MODULE_NAME = "ecSimpleTransformDynamicBoxplot";
+const MODULE_NAME = "ecSimpleTransform";
 
 async function run() {
   /**
