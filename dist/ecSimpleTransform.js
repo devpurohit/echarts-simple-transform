@@ -477,10 +477,10 @@
       groupByVal
     ) {
       return (
-        lineCreatorForQ(0.25, dimInfo, groupByDimInfo, groupByVal) -
+       Math.ceil(lineCreatorForQ(0.25, dimInfo, groupByDimInfo, groupByVal) -
         1.5 *
           (lineCreatorForQ(0.75, dimInfo, groupByDimInfo, groupByVal) -
-            lineCreatorForQ(0.25, dimInfo, groupByDimInfo, groupByVal))
+            lineCreatorForQ(0.25, dimInfo, groupByDimInfo, groupByVal)))
       );
     },
     MAX: function (
@@ -492,10 +492,10 @@
       groupByVal
     ) {
       return (
-        lineCreatorForQ(0.75, dimInfo, groupByDimInfo, groupByVal) +
+        Math.ceil(lineCreatorForQ(0.75, dimInfo, groupByDimInfo, groupByVal) +
         1.5 *
           (lineCreatorForQ(0.75, dimInfo, groupByDimInfo, groupByVal) -
-            lineCreatorForQ(0.25, dimInfo, groupByDimInfo, groupByVal))
+            lineCreatorForQ(0.25, dimInfo, groupByDimInfo, groupByVal)))
       );
     },
     AVERAGE: function (
