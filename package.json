@@ -1,6 +1,6 @@
 {
   "name": "echarts-transform-dynamic-boxplot",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Dynamic boxplot transform for Apache ECharts 5",
   "license": "Apache-2.0",
   "main": "dist/ecSimpleTransformDynamicBoxplot.js",
